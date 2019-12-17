@@ -1,0 +1,20 @@
+.searchbar {
+	position: absolute;
+	background-color: #fff;
+	border-radius: 20px;
+	width: 70%;
+	height: 45px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 2;
+}
+
+.searchbar input {
+	border: none;
+	padding: 5px 10px;
+}

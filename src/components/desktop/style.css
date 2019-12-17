@@ -1,0 +1,10 @@
+.desktop {
+	display: none;
+	width: 100%;
+}
+
+@media only screen and (min-width: 964px) {
+	.desktop {
+		display: flex;
+	}
+}
