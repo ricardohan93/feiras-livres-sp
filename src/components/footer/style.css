@@ -35,3 +35,9 @@
 	width: 30px;
 	color: #c0c7d3;
 }
+
+@media only screen and (min-width: 964px) {
+	.footer {
+		display: none;
+	}
+}

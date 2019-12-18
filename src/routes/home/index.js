@@ -1,14 +1,21 @@
 import { h } from "preact";
 import style from "./style";
 
-import DesktopLayout from "../../components/desktop";
-import MobileLayout from "../../components/mobile";
+import Map from "../../components/map";
+import DesktopContent from "../../components/desktop";
 
-const Home = () => (
-	<>
-		<MobileLayout />
-		<DesktopLayout />
-	</>
-);
+import sizing from "../../components/sizing";
+
+const Home = () => {
+	const result = sizing();
+	console.log("result", result);
+
+	return (
+		<div class={style.home}>
+			<Map />
+			<DesktopContent />
+		</div>
+	);
+};
 
 export default Home;

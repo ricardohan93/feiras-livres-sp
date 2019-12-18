@@ -3,11 +3,10 @@ import style from "./style";
 
 import Map from "../../components/map";
 
-const DesktopLayout = () => (
+const DesktopContent = () => (
 	<div class={style.desktop}>
-		<Map />
 		<div>Desktop Content</div>
 	</div>
 );
 
-export default DesktopLayout;
+export default DesktopContent;
