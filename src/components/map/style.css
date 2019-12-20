@@ -1,4 +1,4 @@
-#map {
+.map {
 	background-color: slateblue;
 	height: 100%;
 	position: absolute;
@@ -10,7 +10,7 @@
 }
 
 @media only screen and (min-width: 964px) {
-	#map {
+	.map {
 		left: 50%;
 	}
 }

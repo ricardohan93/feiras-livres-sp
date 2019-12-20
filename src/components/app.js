@@ -1,7 +1,10 @@
 import { h, Component } from "preact";
+
+// import { render } from 'preact-render-to-string'
 import { Router } from "preact-router";
 
 import Footer from "./footer";
+import Firebase, { FirebaseContext } from "./firebase";
 
 // Code-splitting is automated for routes
 import Home from "../routes/home";
@@ -12,6 +15,7 @@ export default class App extends Component {
 	 *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
 	 *	@param {string} event.url	The newly routed URL
 	 */
+
 	handleRoute = e => {
 		this.currentUrl = e.url;
 	};
@@ -19,12 +23,14 @@ export default class App extends Component {
 	render() {
 		return (
 			<div id='app'>
-				<Router onChange={this.handleRoute}>
-					<Home path='/' />
-					<Profile path='/profile/' user='me' />
-					<Profile path='/profile/:user' />
-				</Router>
-				<Footer />
+				<FirebaseContext.Provider value={new Firebase()}>
+					<Router onChange={this.handleRoute}>
+						<Home path='/' />
+						<Profile path='/profile/' user='me' />
+						<Profile path='/profile/:user' />
+					</Router>
+					<Footer />
+				</FirebaseContext.Provider>
 			</div>
 		);
 	}

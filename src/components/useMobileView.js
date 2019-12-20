@@ -1,20 +1,16 @@
 import { h } from "preact";
-import { useState, useEffect } from "preact/hooks";
+import { useState } from "preact/hooks";
 
-function useIsMobile() {
+function useMobileView() {
 	const isDesktop = window.matchMedia(`(min-width: 964px)`);
 	isDesktop.addListener(() => queryChanged());
-	const [isMobile, setIsMobile] = useState(false);
+	const [isMobile, setIsMobile] = useState(!isDesktop.matches);
 
 	const queryChanged = () => {
 		setIsMobile(!isDesktop.matches);
 	};
 
-	useEffect(() => {
-		console.log("chaaangedd");
-	}, [isDesktop]);
-
 	return isMobile;
 }
 
-export default useIsMobile;
+export default useMobileView;

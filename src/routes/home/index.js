@@ -2,19 +2,24 @@ import { h } from "preact";
 import style from "./style";
 
 import Map from "../../components/map";
+import Searchbar from "../../components/searchbar";
 import DesktopContent from "../../components/desktop";
 
-import sizing from "../../components/sizing";
+import useMobileView from "../../components/useMobileView";
+
+import GoogleMap, { GoogleMapContext } from "../../components/googleMap";
 
 const Home = () => {
-	const result = sizing();
-	console.log("result", result);
+	const isMobile = useMobileView();
 
 	return (
-		<div class={style.home}>
-			<Map />
-			<DesktopContent />
-		</div>
+		<GoogleMapContext.Provider value={new GoogleMap()}>
+			<div class={style.home}>
+				{isMobile && <Searchbar />}
+				<Map />
+				<DesktopContent />
+			</div>
+		</GoogleMapContext.Provider>
 	);
 };
 
