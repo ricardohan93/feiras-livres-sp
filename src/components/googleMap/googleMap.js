@@ -28,30 +28,34 @@ const locations = [
 ];
 
 class GoogleMap {
-  constructor() {
-    const googleMaps = await GoogleMapsLoader({
-      apiKey: process.env.GOOGLE_MAPS_KEY
-    });
+	async init(allMarkets) {
+		const googleMaps = await GoogleMapsLoader({
+			apiKey: process.env.GOOGLE_MAPS_KEY
+		});
 
-    const map = new googleMaps.maps.Map(document.getElementById("map"), {
-      center: { lat: -34.397, lng: 150.644 },
-      zoom: 8
-    });
+		const map = new googleMaps.maps.Map(document.getElementById("map"), {
+			center: { lat: -23.5569923, lng: -46.628468199999986 },
+			zoom: 13
+		});
 
-    const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		const markers = allMarkets.map(function(market, i) {
+			const marker = new googleMaps.maps.Marker({
+				position: new googleMaps.maps.LatLng(market.data.lat, market.data.lon)
+			});
 
-    const markers = locations.map(function(location, i) {
-      return new googleMaps.maps.Marker({
-        position: location,
-        label: labels[i % labels.length]
-      });
-    });
+			marker.addListener("click", function() {
+				map.setZoom(20);
+				map.setCenter(marker.getPosition());
+			});
 
-    const markerCluster = new MarkerClusterer(map, markers, {
-      imagePath:
-        "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m"
-    });
-  }
+			return marker;
+		});
+
+		const markerCluster = new MarkerClusterer(map, markers, {
+			imagePath:
+				"https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m"
+		});
+	}
 }
 
-export default GoogleMap
+export default GoogleMap;

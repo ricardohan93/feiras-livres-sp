@@ -1,5 +1,4 @@
-import * as firebase from "firebase/app";
-import "firebase/analytics";
+import firebase from "firebase/app";
 import "firebase/firestore";
 
 var firebaseConfig = {
@@ -16,8 +15,22 @@ var firebaseConfig = {
 class Firebase {
 	constructor() {
 		firebase.initializeApp(firebaseConfig);
-		firebase.analytics();
+		this.db = firebase.firestore();
 	}
+
+	getAllMarkets = async () => {
+		const markets = await this.db.collection("markets").get();
+		let allMarkets = [];
+
+		markets.forEach(doc => {
+			allMarkets.push({
+				id: doc.id,
+				data: doc.data()
+			});
+		});
+
+		return allMarkets;
+	};
 }
 
 export default Firebase;
