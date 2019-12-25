@@ -55,6 +55,15 @@ https://developers.google.com/maps/documentation/javascript/coordinates?hl=pt_BR
 
 #### Work on desktop layout
 
+#### Store static market data in another place other than database.
+
+- Maybe store in a .json file and only use database to add comments and other stuff for each market, according to each id (numero)
+- Make user cache this file data
+
+#### Add event listener on map, on drag or somethig like this. And on each drag, get the nearest markets to display.
+
+- Use the reduce function https://stackoverflow.com/questions/4057665/google-maps-api-v3-find-nearest-markers
+
 ## CLI Commands
 
 ```bash

@@ -4,22 +4,27 @@ import style from "./style";
 import Map from "../../components/map";
 import Searchbar from "../../components/searchbar";
 import DesktopContent from "../../components/desktop";
-
 import useMobileView from "../../components/useMobileView";
+import GoogleMap from "../../components/googleMap";
 
-import GoogleMap, { GoogleMapContext } from "../../components/googleMap";
+import allMarkets from "../../static/feiras.json";
 
 const Home = () => {
 	const isMobile = useMobileView();
 
 	return (
-		<GoogleMapContext.Provider value={new GoogleMap()}>
-			<div class={style.home}>
-				{isMobile && <Searchbar />}
-				<Map />
-				<DesktopContent />
-			</div>
-		</GoogleMapContext.Provider>
+		<GoogleMap allMarkets={allMarkets.feirasLivres.feira}>
+			{({ selectedMarket, nearbyMarkets }) => (
+				<div class={style.home}>
+					{isMobile && <Searchbar />}
+					<Map selectedMarket={selectedMarket} />
+					<DesktopContent
+						selectedMarket={selectedMarket}
+						nearbyMarkets={nearbyMarkets}
+					/>
+				</div>
+			)}
+		</GoogleMap>
 	);
 };
 
