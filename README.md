@@ -16,6 +16,45 @@ https://github.com/googlemaps/v3-utility-library
 
 https://developers.google.com/maps/documentation/javascript/coordinates?hl=pt_BR
 
+## Todo's
+
+#### Mock the Google Maps Data, to not making requests everytime.
+
+```
+[
+  {
+    data: {
+      sub: "AF",
+      name: "VILA FORMOSA",
+      category: "T",
+      neighborhood: "VL FORMOSA",
+      street: "AV TRUMAIN, S/N",
+      size: "541,00",
+      marketers: "96",
+      lat: "-23.5654036",
+      lon: "-46.536137499999995"
+    },
+  },
+  {
+    data: {
+      sub: "AF",
+      name: "VILA CARRAO",
+      category: "T",
+      neighborhood: "VL CALIFORNIA",
+      street: "RUA COMEN GIL PINHEIRO, 325",
+      size: "511,00",
+      marketers: "89",
+      lat: "-23.5414455",
+      lon: "-46.54536010000004"
+    }
+  }
+]
+```
+
+#### Make the google maps Marker clickable, to open a card
+
+#### Work on desktop layout
+
 ## CLI Commands
 
 ```bash
