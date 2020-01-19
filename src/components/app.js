@@ -26,8 +26,7 @@ export default class App extends Component {
 				<FirebaseContext.Provider value={new Firebase()}>
 					<Router onChange={this.handleRoute}>
 						<Home path='/' />
-						<Profile path='/profile/' user='me' />
-						<Profile path='/profile/:user' />
+						<Home path='/:id' />
 					</Router>
 					<Footer />
 				</FirebaseContext.Provider>

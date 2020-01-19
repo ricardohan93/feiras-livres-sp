@@ -1,0 +1,44 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.widgets {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.widgets div:not(:last-child) {
+	margin-right: 15px;
+}
+
+.button {
+	display: block;
+	padding: 12px 30px;
+	background-color: seagreen;
+	color: #fff;
+	font-size: 1rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.button_invert {
+	display: block;
+	padding: 12px 30px;
+	background-color: transparent;
+	color: seagreen;
+	font-size: 1rem;
+	font-weight: 700;
+	border: none;
+	cursor: pointer;
+}
+
+.icons {
+	width: 20px;
+	color: #c0c7d3;
+	margin-right: 5px;
+}
